@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kekeli Tsoekewo — MSc Quantitative Finance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #212529;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: #b58500; }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 4rem 2rem;
+        }
+
+        .hero .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .hero-left { flex: 0 0 300px; }
+
+        .hero-image { margin-bottom: 1.5rem; }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .hero-info { text-align: center; }
+
+        .hero-info h1 {
+            font-size: 1.9rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: #212529;
+            letter-spacing: 1px;
+        }
+
+        .hero-info .title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #b58500;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-info .department {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-info .research-areas {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-info .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .hero-info .contact-info span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-info .contact-info i { margin-right: 0.5rem; color: #666; }
+
+        .hero-info .contact-info a { color: inherit; text-decoration: none; }
+        .hero-info .contact-info a:hover { color: #b58500; }
+
+        .hero-info .social-links {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .hero-info .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #212529;
+            color: white;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+
+        .hero-info .social-links a:hover { background-color: #b58500; }
+
+        .hero-about { flex: 1; }
+
+        .hero-about h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: #212529;
+            border-bottom: 3px solid #b58500;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .hero-about p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        section:nth-of-type(even) { background-color: #f8f9fa; }
+
+        section h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: #212529;
+            border-bottom: 3px solid #b58500;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .section-intro {
+            font-size: 1.05rem;
+            color: #444;
+            max-width: 760px;
+            margin-bottom: 2.25rem;
+        }
+
+        /* News Section */
+        .news-scroll-container { position: relative; }
+
+        .news-scroll {
+            display: flex;
+            flex-direction: column;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            background: white;
+            scrollbar-width: thin;
+            scrollbar-color: #b58500 #f0f0f0;
+        }
+
+        .news-scroll::-webkit-scrollbar { width: 5px; }
+        .news-scroll::-webkit-scrollbar-track { background: #f0f0f0; }
+        .news-scroll::-webkit-scrollbar-thumb { background-color: #b58500; border-radius: 3px; }
+
+        .news-item {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            padding: 0.8rem 1.25rem;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.15s;
+        }
+
+        .news-item:last-child { border-bottom: none; }
+        .news-item:hover { background-color: #fffbf0; }
+
+        .news-date {
+            flex-shrink: 0;
+            font-size: 0.70rem;
+            font-weight: 700;
+            color: #b58500;
+            width: 58px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .news-content {
+            flex: 1;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            line-height: 1.4;
+        }
+
+        .news-item h3 {
+            font-size: 0.9rem;
+            color: #212529;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .news-divider { color: #ccc; font-size: 0.8rem; }
+
+        .news-item p {
+            color: #666;
+            font-size: 0.88rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Research Section */
+        .research-block { margin-bottom: 2rem; }
+
+        .research-block:last-child { margin-bottom: 0; }
+
+        .research-block h3 {
+            font-size: 1.15rem;
+            color: #212529;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid #b58500;
+        }
+
+        .research-block p {
+            padding-left: 1.25rem;
+            color: #444;
+            font-size: 1rem;
+        }
+
+        /* CV-style sections (Experience / Education) */
+        .cv-section { margin-bottom: 2.5rem; }
+
+        .cv-section:last-child { margin-bottom: 0; }
+
+        .cv-section h3 {
+            font-size: 1.35rem;
+            color: #212529;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            border-left: 4px solid #b58500;
+            padding-left: 1rem;
+        }
+
+        .cv-item { margin-bottom: 1.75rem; padding-left: 1rem; }
+        .cv-item:last-child { margin-bottom: 0; }
+
+        .cv-item h4 {
+            font-size: 1.1rem;
+            color: #212529;
+            margin-bottom: 0.2rem;
+        }
+
+        .cv-item .institution {
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+            font-size: 0.95rem;
+        }
+
+        .cv-item .date {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .cv-item ul {
+            margin: 0;
+            padding-left: 1.1rem;
+            color: #555;
+            font-size: 0.97rem;
+        }
+
+        .cv-item ul li { margin-bottom: 0.3rem; }
+
+        .cv-item p { color: #555; font-size: 0.97rem; }
+
+        /* Skills Section */
+        .skills-group { margin-bottom: 1.75rem; }
+        .skills-group:last-child { margin-bottom: 0; }
+
+        .skills-group h4 {
+            font-size: 0.85rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #b58500;
+            margin-bottom: 0.9rem;
+        }
+
+        .skill-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-pill {
+            background-color: #ffffff;
+            border: 1px solid #e2c780;
+            color: #212529;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #212529;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p { margin-bottom: 0.5rem; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #212529;
+                padding: 1rem;
+            }
+
+            nav ul.active { display: flex; }
+
+            .mobile-menu-btn { display: block; }
+
+            .hero .container { flex-direction: column; align-items: center; }
+
+            .hero-left { flex: 0 0 auto; max-width: 260px; width: 100%; }
+
+            .hero-about { width: 100%; }
+
+            .hero-about h2 { font-size: 1.75rem; }
+
+            .hero-about p { text-align: left; }
+
+            section { padding: 3rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a class="logo" href="#home">KEKELI TSOEKEWO</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="#research">Research</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="mailto:ktsoekew@alumni.cmu.edu">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+        <div class="container">
+            <div class="hero-left">
+                <div class="hero-image">
+                    <img src="kekeli-photo.png" alt="Photo of Kekeli Tsoekewo">
+                </div>
+                <div class="hero-info">
+                    <h1>KEKELI TSOEKEWO</h1>
+                    <p class="title">MSc Quantitative Finance Candidate</p>
+                    <p class="department">Spears School of Business, Oklahoma State University</p>
+                    <p class="research-areas">Household Finance | Climate Finance | Financial Economics</p>
+
+                    <div class="contact-info">
+                        <span>
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:ktsoekew@alumni.cmu.edu">ktsoekew@alumni.cmu.edu</a>
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Stillwater, OK
+                        </span>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" title="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-about">
+                <h2>About</h2>
+                <p>
+                    I study how a warming climate reshapes financial risk for the households least equipped to absorb it.
+                    My work sits at the intersection of <strong>household finance</strong> and <strong>climate finance</strong>,
+                    focused on physical climate risk — the kind that shows up in mortgage terms, insurance non-renewals, and
+                    retirement-account performance long before it shows up in a headline.
+                </p>
+                <p>
+                    I'm particularly interested in closing a measurement gap: the empirical literature on physical climate
+                    risk still lacks a toolkit as rigorous as the one built for transition risk. I want to combine
+                    geospatially linked household financial data — HMDA mortgage records, FEMA and NOAA hazard exposure,
+                    and state insurance-filing data — with <strong>quasi-experimental methods</strong> to test which
+                    measures of physical risk actually predict household financial distress.
+                </p>
+                <p>
+                    I'm currently an MSc Quantitative Finance candidate at the Spears School of Business, Oklahoma State
+                    University, where coursework in econometrics, stochastic calculus, and computational finance is building
+                    the toolkit this agenda demands. I hold a BSc in Business Administration, with a minor in Finance and
+                    Economics, from Carnegie Mellon University.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Section -->
+    <section id="news">
+        <h2>News</h2>
+        <div class="news-scroll-container">
+            <div class="news-scroll">
+
+                <div class="news-item">
+                    <span class="news-date">2026</span>
+                    <div class="news-content">
+                        <h3>🎓 Applying to PhD Programs</h3>
+                        <span class="news-divider">—</span>
+                        <p>Preparing applications to PhD programs in Economics and Financial Economics, continuing research on household and climate finance.</p>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <span class="news-date">Aug 2025</span>
+                    <div class="news-content">
+                        <h3>📚 Started MSc Quantitative Finance</h3>
+                        <span class="news-divider">—</span>
+                        <p>Began the MSQF program at Oklahoma State University and started as a Graduate Assistant at the Spears School of Business.</p>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <span class="news-date">May 2025</span>
+                    <div class="news-content">
+                        <h3>🤝 Co-Founded Somboh Educational Foundation</h3>
+                        <span class="news-divider">—</span>
+                        <p>Partnered with two prep centers to deliver SAT and financial-literacy training to underprivileged students in Accra, Ghana.</p>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <span class="news-date">May 2025</span>
+                    <div class="news-content">
+                        <h3>🎉 Graduated from Carnegie Mellon University</h3>
+                        <span class="news-divider">—</span>
+                        <p>Completed a BSc in Business Administration, with a minor in Finance and Economics.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+        <h2>Research Interests</h2>
+        <p class="section-intro">
+            I aim to help build the measurement toolkit that household and climate finance still lacks — connecting
+            physical climate risk to the balance sheets of the households who actually carry it.
+        </p>
+
+        <div class="research-block">
+            <h3>Physical Climate Risk & Household Balance Sheets</h3>
+            <p>
+                The literature on physical climate risk trails well behind the transition-risk literature: engineering
+                hazard scores are granular but often proprietary, geospatial measures struggle to capture true exposure,
+                and market-based measures are contaminated by everything else that moves prices. I test which of these
+                measures — engineering hazard scores, realized disaster losses, or house-price discounts — best predicts
+                real household financial distress, such as delinquency, forced relocation, or a drop in retirement savings.
+            </p>
+        </div>
+
+        <div class="research-block">
+            <h3>Causal Identification & Adaptation</h3>
+            <p>
+                Building on work showing that drought and heat exposure raise firms' cost of capital once exposure is
+                measured with enough granularity to matter, I plan to use quasi-exogenous timing — state-level insurer
+                exits or FEMA disaster declarations — as an instrument for local physical-risk repricing. I'm also
+                interested in how adaptation capacity — insurance coverage, savings buffers, geographic mobility — explains
+                why two similarly exposed households can end up with very different financial outcomes after the same event.
+            </p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Experience</h2>
+
+        <div class="cv-section">
+            <div class="cv-item">
+                <h4>Graduate Assistant</h4>
+                <p class="institution">Spears School of Business, Oklahoma State University · Stillwater, OK</p>
+                <p class="date">August 2025 – Present</p>
+                <ul>
+                    <li>Designed and back-tested a momentum-based trading algorithm incorporating behavioral finance filters, such as the January effect, across a 10-year historical window.</li>
+                    <li>Deployed the algorithm into a live trading environment, managing a simulated portfolio of 50+ securities and reducing trade latency by 15%.</li>
+                    <li>Developed investment memos and performance reports for faculty review, analyzing risk-adjusted returns and performance variances.</li>
+                </ul>
+            </div>
+
+            <div class="cv-item">
+                <h4>Lead Business & IT Consultant</h4>
+                <p class="institution">Friends Eye Center · Kumasi, Ghana</p>
+                <p class="date">May 2024 – August 2024</p>
+                <ul>
+                    <li>Led the digital transformation of medical records, migrating from paper-based files to OpenEMR and reducing average patient waiting time by 40%.</li>
+                    <li>Developed and launched a new website with SEO best practices, increasing online visibility by 200% and new patient inquiries by 25%.</li>
+                    <li>Delivered a project report identifying $15K in annual record-storage savings and a roadmap for future digital initiatives.</li>
+                </ul>
+            </div>
+
+            <div class="cv-item">
+                <h4>Marketing Analytics Intern</h4>
+                <p class="institution">Qatar Gravity · Doha, Qatar</p>
+                <p class="date">October 2022 – January 2023</p>
+                <ul>
+                    <li>Designed A/B testing frameworks for 5+ digital marketing campaigns, lifting conversion rates by an average of 10 percentage points.</li>
+                    <li>Ran cluster-analysis segmentation on a customer base of 20,000+, identifying three high-value segments.</li>
+                    <li>Prepared data-driven performance memos and presentations for senior management.</li>
+                </ul>
+            </div>
+
+            <div class="cv-item">
+                <h4>Cloud Research Participant — Microsoft Future Digital Leaders Program</h4>
+                <p class="institution">Doha, Qatar</p>
+                <p class="date">May 2023 – August 2023</p>
+                <ul>
+                    <li>Built machine-learning model deployment pipelines on Microsoft Azure for enterprise business intelligence applications.</li>
+                    <li>Evaluated two cloud data-warehousing architectures, improving data pipeline efficiency by 15%.</li>
+                    <li>Deployed predictive analytics models achieving a 10% improvement in prediction accuracy.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cv-section">
+            <h3>Projects & Leadership</h3>
+
+            <div class="cv-item">
+                <h4>Co-Founder, Somboh Educational Foundation</h4>
+                <p class="institution">Accra, Ghana</p>
+                <p class="date">May 2025 – Present</p>
+                <ul>
+                    <li>Partnered with two prep centers to provide SAT and financial-literacy training to 15+ underprivileged students.</li>
+                    <li>Secured $800,000 in scholarship funding for students in need.</li>
+                </ul>
+            </div>
+
+            <div class="cv-item">
+                <h4>Lead Analyst, Taro Pharma M&A Strategy</h4>
+                <p class="institution">Doha, Qatar</p>
+                <p class="date">October 2023 – December 2023</p>
+                <ul>
+                    <li>Valued Taro Pharmaceuticals using DCF and comparable-company methods, pricing the company at $50/share ($45–55 range).</li>
+                    <li>Analyzed capital structure and recommended a 30% increase in post-acquisition debt.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+
+        <div class="cv-section">
+            <div class="cv-item">
+                <h4>MSc Quantitative Finance</h4>
+                <p class="institution">Oklahoma State University · Stillwater, OK</p>
+                <p class="date">Expected May 2027</p>
+                <p>GRE: 164/170 (Math), 163/170 (Verbal). Relevant coursework: Computational Finance, Stochastic Calculus, Investment Analysis, Data Mining, Valuation and Financial Modelling.</p>
+            </div>
+
+            <div class="cv-item">
+                <h4>BSc Business Administration, Finance and Economics Minor</h4>
+                <p class="institution">Carnegie Mellon University · Pittsburgh, PA</p>
+                <p class="date">August 2021 – May 2025</p>
+                <p>GPA: 3.6/4.0. Qatar Foundation Scholar, Carnegie Mellon University Honors, Dean's List. Certifications: Bloomberg Query Language (BQL), Bloomberg Market Concepts (BMC).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+
+        <div class="skills-group">
+            <h4>Technical</h4>
+            <div class="skill-pills">
+                <span class="skill-pill">Python</span>
+                <span class="skill-pill">R</span>
+                <span class="skill-pill">Bloomberg Terminal</span>
+                <span class="skill-pill">Refinitiv Eikon</span>
+                <span class="skill-pill">QuantConnect</span>
+                <span class="skill-pill">Power BI</span>
+                <span class="skill-pill">Advanced Excel</span>
+            </div>
+        </div>
+
+        <div class="skills-group">
+            <h4>Financial Analysis</h4>
+            <div class="skill-pills">
+                <span class="skill-pill">Regression Analysis</span>
+                <span class="skill-pill">Financial Data Analysis</span>
+                <span class="skill-pill">Quantitative Trading</span>
+                <span class="skill-pill">Statistical Modelling</span>
+                <span class="skill-pill">Cross-Sectional Analysis</span>
+                <span class="skill-pill">Variance Analysis</span>
+                <span class="skill-pill">Financial Planning</span>
+                <span class="skill-pill">Financial Reporting</span>
+            </div>
+        </div>
+
+        <div class="skills-group">
+            <h4>Languages</h4>
+            <div class="skill-pills">
+                <span class="skill-pill">English (Native)</span>
+                <span class="skill-pill">French (Basic)</span>
+                <span class="skill-pill">Twi</span>
+                <span class="skill-pill">Ewe</span>
+                <span class="skill-pill">Ga</span>
+                <span class="skill-pill">Fante</span>
+                <span class="skill-pill">West African Pidgin</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Kekeli Tsoekewo.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.getElementById('nav-menu').classList.remove('active');
+                }
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const menu = document.getElementById('nav-menu');
+            if (!nav.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
