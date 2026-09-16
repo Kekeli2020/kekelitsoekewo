@@ -115,13 +115,6 @@
         .hero-info .department {
             font-size: 0.95rem;
             color: #555;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-info .research-areas {
-            font-size: 0.92rem;
-            font-weight: 700;
-            color: #212529;
             margin-bottom: 1.5rem;
         }
 
@@ -211,26 +204,6 @@
             margin-bottom: 2.25rem;
         }
 
-        /* Research Section */
-        .research-block { margin-bottom: 2rem; }
-
-        .research-block:last-child { margin-bottom: 0; }
-
-        .research-block h3 {
-            font-size: 1.15rem;
-            color: #212529;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            padding-left: 1rem;
-            border-left: 4px solid #b58500;
-        }
-
-        .research-block p {
-            padding-left: 1.25rem;
-            color: #444;
-            font-size: 1rem;
-        }
-
         /* Projects Section */
         .project-item {
             margin-bottom: 1.75rem;
@@ -247,11 +220,26 @@
             margin-bottom: 0.4rem;
         }
 
+        .project-item .role {
+            color: #666;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+        }
+
         .project-item p {
             color: #444;
             font-size: 1rem;
             margin-bottom: 0.6rem;
         }
+
+        .project-item ul {
+            padding-left: 1.1rem;
+            color: #444;
+            font-size: 1rem;
+        }
+
+        .project-item ul li { margin-bottom: 0.3rem; }
 
         .project-item a.project-link {
             display: inline-block;
@@ -263,19 +251,10 @@
 
         .project-item a.project-link:hover { text-decoration: underline; }
 
-        /* CV-style sections (Experience / Education) */
+        /* Education Section */
         .cv-section { margin-bottom: 2.5rem; }
 
         .cv-section:last-child { margin-bottom: 0; }
-
-        .cv-section h3 {
-            font-size: 1.35rem;
-            color: #212529;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            border-left: 4px solid #b58500;
-            padding-left: 1rem;
-        }
 
         .cv-item { margin-bottom: 1.75rem; padding-left: 1rem; }
         .cv-item:last-child { margin-bottom: 0; }
@@ -299,20 +278,11 @@
             margin-bottom: 0.6rem;
         }
 
-        .cv-item ul {
-            margin: 0;
-            padding-left: 1.1rem;
-            color: #555;
-            font-size: 0.97rem;
-        }
-
-        .cv-item ul li { margin-bottom: 0.3rem; }
-
         .cv-item p { color: #555; font-size: 0.97rem; }
         .cv-item p a { color: #b58500; font-weight: 600; text-decoration: none; }
         .cv-item p a:hover { text-decoration: underline; }
 
-        /* Skills Section */
+        /* Interests and Skills */
         .skills-group { margin-bottom: 1.75rem; }
         .skills-group:last-child { margin-bottom: 0; }
 
@@ -390,14 +360,14 @@
     <nav>
         <div class="container">
             <a class="logo" href="#home">KEKELI TSOEKEWO</a>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">
                 <i class="fas fa-bars"></i>
             </button>
             <ul id="nav-menu">
-                <li><a href="#research">Research</a></li>
+                <li><a href="#interests">Interests</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="mailto:ktsoekew@alumni.cmu.edu">Contact</a></li>
             </ul>
         </div>
@@ -414,7 +384,6 @@
                     <h1>KEKELI TSOEKEWO</h1>
                     <p class="title">MSc Quantitative Finance Candidate</p>
                     <p class="department">Spears School of Business, Oklahoma State University</p>
-                    <p class="research-areas">Household Finance | Climate Finance | Financial Economics</p>
 
                     <div class="contact-info">
                         <span>
@@ -437,62 +406,34 @@
             <div class="hero-about">
                 <h2>About</h2>
                 <p>
-                    I study how a warming climate reshapes financial risk for the households least equipped to absorb it.
-                    My work sits at the intersection of <strong>household finance</strong> and <strong>climate finance</strong>,
-                    focused on physical climate risk, the kind that shows up in mortgage terms, insurance non-renewals, and
-                    retirement account performance long before it shows up in a headline.
+                    I hold a BSc in Business Administration, with a minor in Finance and Economics, from Carnegie Mellon
+                    University, and I am currently pursuing an MSc in Quantitative Finance at Oklahoma State University.
+                    At Oklahoma State, I also serve as a Graduate Assistant, teaching computational finance and data analysis.
                 </p>
                 <p>
-                    I am particularly interested in closing a measurement gap. The empirical literature on physical climate
-                    risk still lacks a toolkit as rigorous as the one built for transition risk. I want to combine
-                    geospatially linked household financial data, including HMDA mortgage records, FEMA and NOAA hazard
-                    exposure, and state insurance filing data, with <strong>quasi-experimental methods</strong> to test which
-                    measures of physical risk actually predict household financial distress.
+                    My professional background includes business and IT consulting, where I led projects to move paper-based
+                    processes onto digital systems, and a traineeship at PwC focused on forensic accounting and risk management.
                 </p>
                 <p>
-                    Alongside this research agenda, I work hands-on with large, real-world datasets through applied
-                    projects, including an NSF I-Corps venture automating insurance claims workflows for personal
-                    injury firms, a machine learning model that flags fraudulent bank transactions, and a
-                    duration-hedging strategy built for a $325 million fixed-income portfolio. This project work,
-                    together with my graduate coursework in econometrics, stochastic calculus, and computational
-                    finance, is building the technical toolkit this research agenda demands.
-                </p>
-                <p>
-                    I am currently an MSc Quantitative Finance candidate at the Spears School of Business, Oklahoma State
-                    University. I hold a BSc in Business Administration, with a minor in Finance and Economics, from
-                    Carnegie Mellon University.
+                    I work with Python, R, the Bloomberg Terminal, Refinitiv Eikon, and Power BI, and my training covers
+                    quantitative trading, statistical modeling, and financial data analysis. I have applied machine learning
+                    methods to build fraud detection models and have developed interest rate hedging strategies, work that
+                    draws on both quantitative methods and financial analysis.
                 </p>
             </div>
         </div>
     </div>
 
-    <!-- Research Section -->
-    <section id="research">
-        <h2>Research Interests</h2>
-        <p class="section-intro">
-            I aim to help build the measurement toolkit that household and climate finance still lacks, connecting
-            physical climate risk to the balance sheets of the households who actually carry it.
-        </p>
-
-        <div class="research-block">
-            <h3>Physical Climate Risk & Household Balance Sheets</h3>
-            <p>
-                The literature on physical climate risk trails well behind the transition-risk literature: engineering
-                hazard scores are granular but often proprietary, geospatial measures struggle to capture true exposure,
-                and market-based measures are contaminated by everything else that moves prices. I test which of these
-                measures, engineering hazard scores, realized disaster losses, or house-price discounts, best predicts
-                real household financial distress, such as mortgage delinquency or insurance non-renewals.
-            </p>
-        </div>
-
-        <div class="research-block">
-            <h3>Causal Identification & Adaptation</h3>
-            <p>
-                I am interested in using quasi-experimental methods, such as observing state-level insurer exits or
-                FEMA disaster declarations, to isolate local physical-risk repricing. The objective is to examine how
-                adaptation mechanisms like insurance coverage, savings buffers, and geographic mobility dictate the
-                financial outcomes of similarly exposed households following climate shocks.
-            </p>
+    <!-- Interests Section -->
+    <section id="interests">
+        <h2>Interests</h2>
+        <div class="skill-pills">
+            <span class="skill-pill">Climate Finance</span>
+            <span class="skill-pill">Corporate Finance</span>
+            <span class="skill-pill">Household Finance</span>
+            <span class="skill-pill">Retirement Planning</span>
+            <span class="skill-pill">Valuation and Portfolio Management</span>
+            <span class="skill-pill">Financial Modeling</span>
         </div>
     </section>
 
@@ -500,115 +441,63 @@
     <section id="projects">
         <h2>Selected Projects</h2>
         <p class="section-intro">
-            Applied work built on large datasets, spanning machine learning, financial modeling, and valuation.
+            Applied work in machine learning, financial modeling, and valuation.
         </p>
 
         <div class="project-item">
-            <h3>BOK Financial Duration Hedging Strategy &mdash; Competition Winner</h3>
+            <h3>BOK Financial Duration Hedging Strategy (Competition Winner)</h3>
             <p>
                 Built a dynamic one-to-one duration hedging strategy across four securities totaling $325 million in
                 notional value, offsetting a 50 basis point parallel shift in interest rates. Presented the hedging
                 actions, assumptions, and risk contingencies to secure board approval.
             </p>
-            <a class="project-link" href="https://lnkd.in/p/g-ZZhk9f" target="_blank">View Case &rarr;</a>
+            <a class="project-link" href="https://lnkd.in/p/g-ZZhk9f" target="_blank">View Case</a>
         </div>
 
         <div class="project-item">
             <h3>Bank Fraud Prediction Model</h3>
             <p>
                 Built an ensemble machine learning model (Random Forest, XGBoost, KNN) to flag fraudulent account
-                applications from behavioral and channel data, achieving a 0.92+ ROC AUC and 90%+ precision on
-                cross-validated test folds.
+                applications from behavioral and channel data, achieving a ROC AUC above 0.92 and precision above 90%
+                on cross-validated test folds.
             </p>
-            <a class="project-link" href="https://github.com/Kekeli2020/Machine_Learning_for_Bank_Fraud_Detection" target="_blank">View on GitHub &rarr;</a>
+            <a class="project-link" href="https://github.com/Kekeli2020/Machine_Learning_for_Bank_Fraud_Detection" target="_blank">View on GitHub</a>
         </div>
 
         <div class="project-item">
-            <h3>Insurance Claims Automation &mdash; NSF I-Corps</h3>
-            <p>
-                Served as Entrepreneurial Lead on an NSF I-Corps venture automating the insurance lien claims
-                workflow for personal injury firms, cutting processing time by 40%. Worked with large datasets of
-                claims records to identify workflow bottlenecks, directly informing my interest in how insurance
-                markets affect household financial outcomes.
-            </p>
+            <h3>Insurance Lien Claims Automation, National Science Foundation I-Corps</h3>
+            <p class="role">Entrepreneurial Lead</p>
+            <ul>
+                <li>Automated the insurance lien claims workflow, reducing patient claims processing time for personal injury firms by 40%.</li>
+                <li>Received a US$3,000 award to interview founders and paralegals about their business models, strategies, and workflow bottlenecks.</li>
+            </ul>
         </div>
 
         <div class="project-item">
             <h3>Diamond Pricing Analysis</h3>
             <p>
-                Cleaned and analyzed large-scale pricing datasets to evaluate valuation metrics and isolate the
-                statistical drivers of asset pricing across varying physical characteristics.
+                Cleaned and analyzed large pricing datasets to evaluate valuation metrics and identify the statistical
+                drivers of price across physical characteristics.
             </p>
-            <a class="project-link" href="https://github.com/Kekeli2020/Diamond-Pricing-Analysis" target="_blank">View on GitHub &rarr;</a>
+            <a class="project-link" href="https://github.com/Kekeli2020/Diamond-Pricing-Analysis" target="_blank">View on GitHub</a>
         </div>
 
         <div class="project-item">
             <h3>Financial Time Series Trading Algorithm</h3>
             <p>
                 Built a Long Short-Term Memory (LSTM) neural network in PyTorch to predict stock price movements and
-                validate momentum-trading signals with behavioral finance overlays, backtesting across 10 years of
-                historical data and reducing prediction error (MAPE) by over 15% versus ARIMA.
+                test momentum-trading signals with behavioral finance overlays, backtesting across 10 years of
+                historical data and reducing prediction error (MAPE) by more than 15% relative to ARIMA.
             </p>
         </div>
 
         <div class="project-item">
-            <h3>Taro Pharmaceuticals M&A Valuation</h3>
+            <h3>Taro Pharmaceuticals M&amp;A Valuation</h3>
             <p>
-                Valued Taro Pharmaceuticals using DCF and comparable-company methods, pricing the company at $50 per
-                share ($45 to $55 range) and recommending a 30% increase in post-acquisition debt to optimize the
-                capital structure.
+                Valued Taro Pharmaceuticals using discounted cash flow and comparable-company methods, estimating a value
+                of $50 per share within a $45 to $55 range, and recommended a 30% increase in post-acquisition debt to
+                improve the capital structure.
             </p>
-        </div>
-
-        <div class="project-item">
-            <h3>Somboh Educational Foundation &mdash; Co-Founder</h3>
-            <p>
-                Partnered with two prep centers in Accra, Ghana to provide SAT and financial literacy training to
-                underprivileged students, and helped secure $800,000 in scholarship funding for students in need.
-            </p>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2>Experience</h2>
-        <p class="section-intro">
-            My professional experience centers on the same thread as my project work: extracting reliable signal from
-            large, complex datasets, whether in the classroom, in a cloud data pipeline, or in a healthcare records
-            system.
-        </p>
-
-        <div class="cv-section">
-            <div class="cv-item">
-                <h4>Graduate Assistant</h4>
-                <p class="institution">Spears School of Business, Oklahoma State University &middot; Stillwater, OK</p>
-                <p class="date">August 2025 to Present</p>
-                <ul>
-                    <li>Instruct students on computational finance, statistical programming, and data analysis using Python, R, and SAS.</li>
-                    <li>Tutor students in three-statement financial modeling, portfolio management principles, and quantitative company valuation techniques.</li>
-                </ul>
-            </div>
-
-            <div class="cv-item">
-                <h4>Cloud Research Participant, Microsoft Future Digital Leaders Program</h4>
-                <p class="institution">Doha, Qatar</p>
-                <p class="date">May 2023 to August 2023</p>
-                <ul>
-                    <li>Built and deployed machine learning model frameworks on Microsoft Azure, setting up automated data pipelines for enterprise analytics.</li>
-                    <li>Tested competing cloud data warehousing architectures, identifying optimizations that improved data pipeline efficiency by 15% for large-scale datasets.</li>
-                    <li>Deployed predictive models using cross-validation, improving prediction accuracy by 10% across customer churn and sales forecasting scenarios.</li>
-                </ul>
-            </div>
-
-            <div class="cv-item">
-                <h4>Lead Business & IT Consultant</h4>
-                <p class="institution">Friends Eye Center &middot; Kumasi, Ghana</p>
-                <p class="date">May 2024 to August 2024</p>
-                <ul>
-                    <li>Managed the migration of paper-based medical records to an OpenEMR relational database, automating data retrieval and cutting patient wait times by 40%.</li>
-                    <li>Analyzed structural workflow bottlenecks and presented a roadmap identifying $15,000 in annual record storage savings to guide financial planning.</li>
-                </ul>
-            </div>
         </div>
     </section>
 
@@ -619,14 +508,14 @@
         <div class="cv-section">
             <div class="cv-item">
                 <h4>MSc Quantitative Finance</h4>
-                <p class="institution">Oklahoma State University &middot; Stillwater, OK</p>
+                <p class="institution">Oklahoma State University, Stillwater, OK</p>
                 <p class="date">Expected May 2027</p>
-                <p>Relevant coursework: Computational Finance, Stochastic Calculus, Investment Analysis, Data Mining, Valuation and Financial Modeling. GRE: 164/170 (Math), 163/170 (Verbal).</p>
+                <p>Relevant coursework: Computational Finance, Stochastic Calculus, Investment Analysis, Data Mining, Valuation and Financial Modeling. GRE: 164/170 (Quantitative), 163/170 (Verbal).</p>
             </div>
 
             <div class="cv-item">
                 <h4>BSc Business Administration, Finance and Economics Minor</h4>
-                <p class="institution">Carnegie Mellon University &middot; Pittsburgh, PA</p>
+                <p class="institution">Carnegie Mellon University, Pittsburgh, PA</p>
                 <p class="date">August 2021 to May 2025</p>
                 <p>GPA: 3.6/4.0. Honors: Qatar Foundation Scholar, Carnegie Mellon University Honors, Dean's List.</p>
                 <p>Certifications: <a href="https://portal.bloombergforeducation.com/certificates/waJekATyRgRT55aawsoXGUDn" target="_blank">Bloomberg Query Language (BQL)</a>, <a href="https://portal.bloombergforeducation.com/certificates/3eCqykw2VmcN4nxDackYzcaH" target="_blank">Bloomberg Market Concepts (BMC)</a>.</p>
@@ -658,11 +547,10 @@
                 <span class="skill-pill">Regression Analysis</span>
                 <span class="skill-pill">Financial Data Analysis</span>
                 <span class="skill-pill">Quantitative Trading</span>
-                <span class="skill-pill">Statistical Modelling</span>
+                <span class="skill-pill">Statistical Modeling</span>
                 <span class="skill-pill">Cross-Sectional Analysis</span>
                 <span class="skill-pill">Variance Analysis</span>
                 <span class="skill-pill">Financial Planning</span>
-                <span class="skill-pill">Data-Driven Decision Making</span>
             </div>
         </div>
     </section>
@@ -670,7 +558,7 @@
     <!-- Footer -->
     <footer>
         <p>Kekeli Tsoekewo</p>
-        <p><a href="mailto:ktsoekew@alumni.cmu.edu">ktsoekew@alumni.cmu.edu</a> &middot; Stillwater, OK</p>
+        <p><a href="mailto:ktsoekew@alumni.cmu.edu">ktsoekew@alumni.cmu.edu</a>, Stillwater, OK</p>
     </footer>
 
     <script>
